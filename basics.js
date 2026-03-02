@@ -54,7 +54,7 @@ console.log(classify(-1))
 
 /*
   **Esercizio: array e loop**. 
-  Dato un array di numeri, calcolare la somma usando un ciclo `for` classico e un ciclo `for...of`. 
+  Dato un array di numeri, calcolare la somma usando un ciclo `for` classico o un ciclo `for...of`. 
   Riutilizzare la funzione sum
 */
 const numbers = [1, 2, 3, 4, 5, 6];
