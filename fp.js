@@ -6,30 +6,36 @@
 
   */
 
- let discount = 0.1;
- function applyDiscount(price) { return price - price * discount; }
+let discount = 0.1;
+function applyDiscount(price) { return price - price * discount; }
 
- function addItem(cart, item) { cart.push(item); return cart; }
+function addItem(cart, item) { cart.push(item); return cart; }
 
- function double(x) { return x * 2; }
+function double(x) { return x * 2; }
 
 /*
   **Esercizio 2: Transformation function**
   Scrivere una funzione pura `transformProduct` che prende un oggetto
-  `{ name, price, available }` e restituisce un nuovo oggetto nella forma
+  `{ name, price, inStock }` e restituisce un nuovo oggetto nella forma
   `{ currentName, defaultPrice, isAvailable }` senza modificare l'originale.
 */
 
 /*
   **Esercizio 3: First-class + callbacks**
-  Implementare `applyTwice(fn, x)` che applica la funzione `fn` due volte al valore `x`
-  (es. `applyTwice(x => x * 2, 3)` → 12).
   Implementare `repeat(fn, n)` che restituisce una funzione che applica `fn` esattamente
   `n` volte al valore ricevuto (es. `repeat(x => x + 1, 5)(0)` → 5).
 */
 
 /*
-  **Esercizio 4: map/filter/reduce**
+  **Esercizio 4: Closures**
+  Implementare `makeCounter(start)` che restituisce un oggetto con i metodi
+  `increment()`, `decrement()` e `value()`.
+  Lo stato interno (`count`) deve essere privato — non accessibile dall'esterno.
+  Usare una closure, non una classe.
+*/
+
+/*
+  **Esercizio 5: map/filter/reduce**
   Dato l'array di prodotti
 
   Costruire una pipeline che:
@@ -40,24 +46,50 @@
 */
 
 const products = [
-  { name: "Mela",   price: 1.5, available: true  },
+  { name: "Mela", price: 1.5, available: true },
   { name: "Banana", price: 0.8, available: false },
-  { name: "Kiwi",   price: 2.0, available: true  },
-  { name: "Pera",   price: 1.2, available: true  },
+  { name: "Kiwi", price: 2.0, available: true },
+  { name: "Pera", price: 1.2, available: true },
 ];
 
 /*
-  **Esercizio 5: Closures**
-  Implementare `makeCounter(start)` che restituisce un oggetto con i metodi
-  `increment()`, `decrement()` e `value()`.
-  Lo stato interno (`count`) deve essere privato — non accessibile dall'esterno.
-  Usare una closure, non una classe.
+  **Esercizio 6: pipe**
+  Partendo dall'esercizio precedente, riscrivere la stessa logica usando funzioni piccole
+  e una composizione con `pipe`.
+
+  Obiettivo: implementare `getDiscountedAvailableTotal(products)`.
+
+  Passi consigliati:
+  1. Implementare `pipe(...fns)`
+  2. Scrivere `onlyAvailable(items)`
+  3. Scrivere `toPrices(items)`
+  4. Scrivere `applyDiscount(rate)` che restituisce una funzione capace di scontare tutti i prezzi
+  5. Scrivere `sum(prices)`
+  6. Comporre tutto con `pipe`
+
+  Vincoli:
+  - usare `filter`, `map` e `reduce`
+  - non mutare mai l'array originale
+
+  Risultato atteso con `products`: 4.23
 */
 
-/*
-  **Esercizio 6: Composition**
-  Implementare le funzioni `compose(...fns)` (esegue da destra a sinistra)
-  e `pipe(...fns)` (esegue da sinistra a destra).
-  Testare entrambe componendo almeno tre trasformazioni su stringhe,
-  ad esempio: trim, toLowerCase, capitalize.
-*/
+const pipe = (...fns) => input => { };
+
+const onlyAvailable = items => { };
+
+const toPrices = items => { };
+
+const applyDiscount = rate => prices => { };
+
+const sum = prices => { };
+
+const getDiscountedAvailableTotal = pipe(
+  onlyAvailable,
+  toPrices,
+  applyDiscount(0.1),
+  sum,
+);
+
+console.log(getDiscountedAvailableTotal(products));
+

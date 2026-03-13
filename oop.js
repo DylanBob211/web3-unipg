@@ -4,6 +4,38 @@
   Metodi: `increment()` aumenta il valore di 1, `decrement()` lo diminuisce di 1,
   `reset()` riporta il valore a `start`, `value()` restituisce il valore corrente.
 */
+class Counter {
+  #start;
+  #current;
+  constructor(start) {
+    this.#start = start;
+    this.#current = start;
+  }
+
+  increment() {
+    this.#current += 1;
+  }
+
+  decrement() {
+    this.#current -= 1;
+  }
+
+  reset() {
+    this.#current = this.#start;
+  }
+
+  get value() {
+    return this.#current;
+  }
+}
+
+const counter = new Counter(0);
+counter.increment()
+counter.increment()
+counter.increment()
+counter.increment()
+counter.reset();
+console.log(counter.value)
 
 /*
   **Esercizio 2: Stack**

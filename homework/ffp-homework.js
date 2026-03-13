@@ -1,8 +1,8 @@
 /**
  * Esercizio 1 — Normalizza prodotti
  *
- * Ricevi una lista di prodotti grezzi provenienti da un'API
- * con nomi di campo inconsistenti e scrivi una funzione PURA
+ * Immagina di ricevere una lista di prodotti grezzi provenienti da un'API
+ * con nomi di campo inconsistenti. Scrivi una funzione PURA
  * `normalizeProducts(rawProducts)` che restituisce un nuovo array
  * di prodotti normalizzati.
  *
@@ -180,7 +180,7 @@ export function memoize(fn) {
  *   ]) → 120
  */
 export function computeBalance(transactions) {
- 
+
 }
 
 export function getCredits(transactions) {
@@ -280,15 +280,15 @@ export function insertAt(arr, index, value) {
  *   ])
  *   → ["Alice Rossi (30)"]
  */
-export const pipe = (...fns) => x => {};
+export const pipe = (...fns) => x => { };
 
-export const normalizeUsers = users => {}
+export const normalizeUsers = users => { }
 
-export const filterAdults = users => {};
+export const filterAdults = users => { };
 
-export const sortByName = users => {};
+export const sortByName = users => { };
 
-export const toReport = users => {};
+export const toReport = users => { };
 
 export const processUserReport = pipe(
   normalizeUsers,

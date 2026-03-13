@@ -60,8 +60,23 @@ console.log(classify(-1))
 const numbers = [1, 2, 3, 4, 5, 6];
 
 function sumArray(arr) {
-
+  let sum = 0;
+  for (let i =0 ; i < arr.length; i++) {
+    sum = sum + arr[i]
+  }
+  return sum;
 }
+
+function sumArrayWithForOfLoop(arr) {
+  let sum = 0;
+  for (const item of arr) {
+    sum += item
+  }
+  return sum;
+}
+
+const result = sumArray(numbers);
+console.log(result);
 
 /*
   **Esercizio: voto letterale**.
@@ -73,9 +88,21 @@ function sumArray(arr) {
   - 0–54   → "Insufficiente"
   Testarla con almeno quattro valori diversi.
 */
-function gradeLabel(score) {
-
+export function gradeLabel(score) {
+  if (score <= 100 && score >= 90) {
+    return "Ottimo"
+  }
+  if (score < 90 && score >= 70) {
+    return "Buono"
+  }
+  if (score < 70 && score >= 55) {
+    return "Sufficiente"
+  }
+  return "Insufficiente"
 }
+
+const label = gradeLabel(70);
+console.log(label)
 
 /*
   **Esercizio: anno bisestile**.
