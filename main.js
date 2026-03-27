@@ -1,21 +1,21 @@
 
 const todoList = document.querySelector('#todo-list');
 
-
-console.log(todoList)
-
-function createTodoItem(name) {
+function createTodoItem(todo) {
   const li = document.createElement('li');
 
   li.innerHTML = `
     <label>
-      <input type="checkbox">
+      <input type="checkbox" ${todo.completed ? "checked" : ''}>
+      <span>
+        ${todo.title}
+      </span>
     </label>
-    <span>${name}</span> 
     <button aria-label="rimuovi">-</button>
   `
 
   return li;
 }
-todoList.append(createTodoItem('ciao'))
-todoList.addEventListener('click', (e) => console.log(e))
+
+const initialTodo = createTodoItem({ title: 'ciao', completed: true });
+todoList.append(initialTodo);

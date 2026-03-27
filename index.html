@@ -15,10 +15,10 @@
   <main>
     <form>
       <label for="new-todo">
-        Nuovo todo
+        Aggiungi un nuovo todo alla lista
       </label>
       <div class="form-field">
-        <input id="new-todo" name="new-todo" placeholder="Titolo todo...">
+        <input id="new-todo" name="new-todo" placeholder="Cosa vuoi fare oggi?">
         <button aria-label="Aggiungi">+</button>
       </div>
     </form>
@@ -26,13 +26,16 @@
       <li>
         <label>
           <input type="checkbox">
+          <span>
+            Item 1
+          </span>
         </label>
-        <span>Item 1</span> <button aria-label="rimuovi">-</button>
+        <button aria-label="rimuovi">-</button>
       </li>
     </ul>
   </main>
 
-  <script src="main.js">
+  <script src="main.js" type="module">
 
   </script>
 </body>

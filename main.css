@@ -1,62 +1,190 @@
- *, *::before, *::after { box-sizing: border-box }
+:root {
+  --color-primary: hsl(220 81% 54%);
+  --color-primary-text: white;
+  --color-danger-bg: hsl(0 100% 95%);
+  --color-danger-text: hsl(0 78% 36%);
+  --color-border: lightgray;
 
+  --radius-sm: 4px;
+  --radius-md: 6px;
+
+  --font-family: sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.1rem;
+  --font-size-xl: 1.2rem;
+  --font-size-heading: 2.5rem;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box
+}
 
 body {
-  font-family: sans-serif;
+  font-family: var(--font-family);
+  max-width: 1180px;
+  margin: var(--space-6) auto;
+  padding: 0 var(--space-4);
+}
+
+header h1 {
+  font-size: var(--font-size-heading);
+  margin-bottom: var(--space-4);
+
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: var(--color-primary);
+    margin-top: var(--space-2);
+  }
 }
 
 
-.form-field {
-  display: flex;
-  position: relative;
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  line-height: 1;
+  display: inline-flex;
+  place-items: center;
+  transition: background-color 0.15s, transform 0.1s;
+
+  &:hover {
+    filter: brightness(0.92);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
-label {
-  display: block;
-  margin-bottom: 8px;
-}
+form {
 
-input {
-  flex: 1;
-  padding: 16px;
-  border: 1px solid lightgray;
-  border-radius: 4px;
-}
+  label {
+    display: block;
+    margin-bottom: var(--space-2);
+    opacity: 0.7;
+    font-size: var(--font-size-lg);
+  }
+
+  .form-field {
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    input {
+      flex: 1;
+      padding: var(--space-4);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+
+      &:focus {
+        border-color: color-mix(in oklch, var(--color-primary) 50%, transparent);
+        box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 20%, transparent);
+      }
+    }
 
 
-.form-field button {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 8px;
-  border-radius: 4px;
-  appearance: none;
-  background-color: lightblue;
+    button {
+      position: absolute;
+      right: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      background-color: var(--color-primary);
+      color: var(--color-primary-text);
+      font-size: var(--font-size-xl);
+    }
+  }
 }
 
 ul {
   list-style: none;
   padding-left: 0;
+  margin-top: var(--space-5);
 }
 
 li {
   display: flex;
   align-items: center;
-  padding: 16px 24px;
-  border: 1px solid lightgray;
-}
+  padding: var(--space-4) var(--space-5);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
 
-li.done span {
-  text-decoration: line-through;
-}
+  &+li {
+    margin-top: var(--space-2);
+  }
 
-li button {
-  margin-left: auto;
-  border-radius: 4px;
-  background-color: lightblue;
-}
+  label:has(input[type="checkbox"]) {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.2s, text-decoration 0.4s;
 
-li label { 
-  margin-bottom: 0;
+    span {
+      margin-left: var(--space-3);
+    }
+
+  }
+
+  label:has(input[type="checkbox"]:checked) span {
+    text-decoration: line-through;
+    opacity: 0.6;
+
+  }
+
+  input[type="checkbox"] {
+    --size: 22px;
+    cursor: pointer;
+    appearance: none;
+    width: var(--size);
+    height: var(--size);
+    border: 2px solid var(--color-border);
+    border-radius: 50%;
+    transition: border-color 0.2s, background-color 0.2s;
+    position: relative;
+
+    &::after {
+      --check-color: var(--color-primary-text);
+      content: '';
+      position: absolute;
+      inset: 4px;
+      background: var(--check-color);
+      clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+
+    &:checked {
+      background-color: color-mix(in oklch, var(--color-primary) 80%, transparent);
+      border-color: var(--color-primary);
+
+      &::after {
+        opacity: 1;
+      }
+
+    }
+
+  }
+
+  button {
+    margin-left: auto;
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--color-danger-bg);
+    color: var(--color-danger-text);
+  }
+
 }
