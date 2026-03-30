@@ -13,7 +13,7 @@
     <h1>Todo List</h1>
   </header>
   <main>
-    <form>
+    <form id="todo-form">
       <label for="new-todo">
         Aggiungi un nuovo todo alla lista
       </label>
@@ -23,21 +23,14 @@
       </div>
     </form>
     <ul id="todo-list">
-      <li>
-        <label>
-          <input type="checkbox">
-          <span>
-            Item 1
-          </span>
-        </label>
-        <button aria-label="rimuovi">-</button>
-      </li>
+
     </ul>
   </main>
 
-  <script src="main.js" type="module">
-
-  </script>
+  <script src="main.js" type="module"></script>
+  <script src="model.js" type="module"></script>
+  <script src="view.js" type="module"></script>
+  <script src="observable.js" type="module"></script>
 </body>
 
 </html>

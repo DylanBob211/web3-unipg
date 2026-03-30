@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Simple Contact Manager</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#0056D2",
+              "surface": "#f8f9fa",
+              "on-surface": "#1a1c1e",
+              "outline": "#74777f",
+            },
+            fontFamily: {
+              "headline": ["Manrope", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              "DEFAULT": "8px",
+              "lg": "12px",
+              "xl": "16px",
+            },
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      body {
+        background-color: #f8f9fa;
+        color: #1a1c1e;
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+<!-- Single Centered Container -->
+<div class="max-w-2xl mx-auto space-y-12">
+<!-- App Header -->
+<header class="text-center">
+<h1 class="font-headline text-3xl font-extrabold text-primary mb-2">Contact Manager</h1>
+<p class="text-slate-600">A simple directory for your connections</p>
+</header>
+<!-- 1. Add New Contact Form -->
+<section class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-slate-200">
+<h2 class="font-headline text-xl font-bold mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined">person_add</span>
+                Add New Contact
+            </h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="md:col-span-2">
+<label class="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+<input class="w-full rounded-md border-slate-300 focus:border-primary focus:ring-primary shadow-sm" placeholder="Leanne Graham" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 mb-1">Username</label>
+<input class="w-full rounded-md border-slate-300 focus:border-primary focus:ring-primary shadow-sm" placeholder="Bret" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 mb-1">Email</label>
+<input class="w-full rounded-md border-slate-300 focus:border-primary focus:ring-primary shadow-sm" placeholder="Sincere@april.biz" type="email"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 mb-1">Phone</label>
+<input class="w-full rounded-md border-slate-300 focus:border-primary focus:ring-primary shadow-sm" placeholder="1-770-736-8031" type="tel"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 mb-1">Website</label>
+<input class="w-full rounded-md border-slate-300 focus:border-primary focus:ring-primary shadow-sm" placeholder="hildegard.org" type="text"/>
+</div>
+<div class="md:col-span-2 pt-4 border-t border-slate-100 mt-2">
+<label class="block text-sm font-medium text-slate-700 mb-1">Company Name</label>
+<input class="w-full rounded-md border-slate-300 focus:border-primary focus:ring-primary shadow-sm" placeholder="Romaguera-Crona" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 mb-1">Catchphrase</label>
+<input class="w-full rounded-md border-slate-300 focus:border-primary focus:ring-primary shadow-sm" placeholder="Multi-layered client-server" type="text"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-slate-700 mb-1">BS</label>
+<input class="w-full rounded-md border-slate-300 focus:border-primary focus:ring-primary shadow-sm" placeholder="harness real-time markets" type="text"/>
+</div>
+<div class="md:col-span-2 mt-4">
+<button class="w-full bg-primary hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md transition-colors shadow-md" type="submit">
+                        Save Contact
+                    </button>
+</div>
+</form>
+</section>
+<!-- 2. Vertical List of Contact Cards -->
+<section class="space-y-4">
+<h2 class="font-headline text-xl font-bold mb-4 flex items-center gap-2 text-slate-800">
+<span class="material-symbols-outlined">groups</span>
+                Directory
+            </h2>
+<!-- Contact Card 1 -->
+<div class="bg-white p-5 rounded-lg border border-slate-200 flex flex-col md:flex-row gap-4 items-start md:items-center hover:border-primary/30 transition-colors">
+<div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-primary font-bold text-lg shrink-0">
+                    LG
+                </div>
+<div class="flex-1">
+<h3 class="font-bold text-slate-900">Leanne Graham <span class="text-sm font-normal text-slate-500 ml-2">@Bret</span></h3>
+<div class="text-sm text-slate-600 grid grid-cols-1 md:grid-cols-2 gap-x-4">
+<span>Sincere@april.biz</span>
+<span>1-770-736-8031</span>
+</div>
+</div>
+<div class="text-right shrink-0 flex items-center">
+<span class="inline-block px-2 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded">Romaguera-Crona</span><button class="ml-3 text-slate-400 hover:text-red-500 transition-colors flex items-center justify-center p-1 rounded-full hover:bg-red-50" title="Delete Contact">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Contact Card 2 -->
+<div class="bg-white p-5 rounded-lg border border-slate-200 flex flex-col md:flex-row gap-4 items-start md:items-center hover:border-primary/30 transition-colors">
+<div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center text-purple-700 font-bold text-lg shrink-0">
+                    EH
+                </div>
+<div class="flex-1">
+<h3 class="font-bold text-slate-900">Ervin Howell <span class="text-sm font-normal text-slate-500 ml-2">@Antonette</span></h3>
+<div class="text-sm text-slate-600 grid grid-cols-1 md:grid-cols-2 gap-x-4">
+<span>Shanna@melissa.tv</span>
+<span>010-692-6593</span>
+</div>
+</div>
+<div class="text-right shrink-0 flex items-center">
+<span class="inline-block px-2 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded">Deckow-Crist</span><button class="ml-3 text-slate-400 hover:text-red-500 transition-colors flex items-center justify-center p-1 rounded-full hover:bg-red-50" title="Delete Contact">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+<!-- Contact Card 3 -->
+<div class="bg-white p-5 rounded-lg border border-slate-200 flex flex-col md:flex-row gap-4 items-start md:items-center hover:border-primary/30 transition-colors">
+<div class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center text-green-700 font-bold text-lg shrink-0">
+                    CB
+                </div>
+<div class="flex-1">
+<h3 class="font-bold text-slate-900">Clementine Bauch <span class="text-sm font-normal text-slate-500 ml-2">@Samantha</span></h3>
+<div class="text-sm text-slate-600 grid grid-cols-1 md:grid-cols-2 gap-x-4">
+<span>Nathan@yesenia.net</span>
+<span>1-463-123-4447</span>
+</div>
+</div>
+<div class="text-right shrink-0 flex items-center">
+<span class="inline-block px-2 py-1 bg-slate-100 text-slate-600 text-xs font-semibold rounded">Romaguera-Jacobson</span><button class="ml-3 text-slate-400 hover:text-red-500 transition-colors flex items-center justify-center p-1 rounded-full hover:bg-red-50" title="Delete Contact">
+<span class="material-symbols-outlined text-[20px]">delete</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="text-center pb-8">
+<p class="text-slate-400 text-xs">Curator Contacts © 2023</p>
+</footer>
+</div>
+</body></html>
