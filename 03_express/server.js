@@ -11,34 +11,41 @@ app.use(cors());
 // Middleware: parse automatico del body JSON
 app.use(express.json());
 
-// "Database" in memoria — array di post
-let posts = [
-  { id: 1, title: 'First Post', content: 'Hello World', author: 'Mario' },
-  { id: 2, title: 'Second Post', content: 'Learning Node', author: 'Luigi' },
+// "Database" in memoria — array di todos
+let todos = [
+  { userId: 1, id: 1, title: 'delectus aut autem', completed: false },
+  { userId: 1, id: 2, title: 'quis ut nam facilis et officia qui', completed: true },
 ];
 
-// TODO: GET /api/posts
-// Restituisce la lista completa dei post
+// TODO: GET /api/todos
+// Restituisce la lista completa dei todo
 // Status: 200
 
-// TODO: GET /api/posts/:id
-// Restituisce il singolo post con l'id specificato
+
+// TODO: GET /api/todos/:id
+// Restituisce il singolo todo con l'id specificato
 // Status: 200 se trovato, 404 se non esiste
 
-// TODO: POST /api/posts
-// Crea un nuovo post con i dati nel body (title, content, author)
+
+// TODO: POST /api/todos
+// Crea un nuovo todo con i dati nel body (userId, title, completed)
 // Assegna un id univoco
 // Status: 201
 
-// TODO: DELETE /api/posts/:id
-// Elimina il post con l'id specificato
+// TODO: DELETE /api/todos/:id
+// Elimina il todo con l'id specificato
 // Status: 204 se eliminato, 404 se non esiste
+
+
+// TODO: PUT /api/todos
+// Sostituisce l'intera lista di todos con la lista inviata
+// Status: 200
 
 // Avvia il server solo se il file viene eseguito direttamente
 // (non quando viene importato dai test)
 if (process.argv[1] === new URL(import.meta.url).pathname) {
-  app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+  app.listen(3001, () => {
+    console.log('Server running on http://localhost:3001');
   });
 }
 
