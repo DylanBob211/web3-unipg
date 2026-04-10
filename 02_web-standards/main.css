@@ -25,7 +25,7 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box
+  box-sizing: border-box;
 }
 
 body {
@@ -49,7 +49,6 @@ header h1 {
   }
 }
 
-
 button {
   cursor: pointer;
   border: none;
@@ -59,7 +58,9 @@ button {
   line-height: 1;
   display: inline-flex;
   place-items: center;
-  transition: background-color 0.15s, transform 0.1s;
+  transition:
+    background-color 0.15s,
+    transform 0.1s;
 
   &:hover {
     filter: brightness(0.92);
@@ -71,7 +72,6 @@ button {
 }
 
 form {
-
   label {
     display: block;
     margin-bottom: var(--space-2);
@@ -90,14 +90,20 @@ form {
       border: 1px solid var(--color-border);
       border-radius: var(--radius-sm);
       outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition:
+        border-color 0.2s,
+        box-shadow 0.2s;
 
       &:focus {
-        border-color: color-mix(in oklch, var(--color-primary) 50%, transparent);
-        box-shadow: 0 0 0 3px color-mix(in oklch, var(--color-primary) 20%, transparent);
+        border-color: color-mix(
+          in oklch,
+          var(--color-primary) 50%,
+          transparent
+        );
+        box-shadow: 0 0 0 3px
+          color-mix(in oklch, var(--color-primary) 20%, transparent);
       }
     }
-
 
     button {
       position: absolute;
@@ -123,30 +129,30 @@ li {
   border-radius: var(--radius-md);
   border: 1px solid var(--color-border);
 
-  &+li {
+  & + li {
     margin-top: var(--space-2);
   }
 
-  label:has(input[type="checkbox"]) {
+  label:has(input[type='checkbox']) {
     margin-bottom: 0;
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: opacity 0.2s, text-decoration 0.4s;
+    transition:
+      opacity 0.2s,
+      text-decoration 0.4s;
 
     span {
       margin-left: var(--space-3);
     }
-
   }
 
-  label:has(input[type="checkbox"]:checked) span {
+  label:has(input[type='checkbox']:checked) span {
     text-decoration: line-through;
     opacity: 0.6;
-
   }
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     --size: 22px;
     cursor: pointer;
     appearance: none;
@@ -154,7 +160,9 @@ li {
     height: var(--size);
     border: 2px solid var(--color-border);
     border-radius: 50%;
-    transition: border-color 0.2s, background-color 0.2s;
+    transition:
+      border-color 0.2s,
+      background-color 0.2s;
     position: relative;
 
     &::after {
@@ -169,15 +177,17 @@ li {
     }
 
     &:checked {
-      background-color: color-mix(in oklch, var(--color-primary) 80%, transparent);
+      background-color: color-mix(
+        in oklch,
+        var(--color-primary) 80%,
+        transparent
+      );
       border-color: var(--color-primary);
 
       &::after {
         opacity: 1;
       }
-
     }
-
   }
 
   button {
@@ -186,5 +196,4 @@ li {
     background-color: var(--color-danger-bg);
     color: var(--color-danger-text);
   }
-
 }

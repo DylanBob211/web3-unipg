@@ -1,5 +1,4 @@
 export class Observable {
-
   #listeners = [];
   #value;
 
@@ -8,7 +7,7 @@ export class Observable {
   }
 
   subscribe(fn) {
-    this.#listeners.push(fn)
+    this.#listeners.push(fn);
   }
 
   next(value) {

@@ -1,36 +1,31 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="main.css">
-</head>
+  <body>
+    <header>
+      <h1>Todo List</h1>
+    </header>
+    <main>
+      <form id="todo-form">
+        <label for="new-todo"> Aggiungi un nuovissimo todo alla lista </label>
+        <div class="form-field">
+          <input
+            id="new-todo"
+            name="new-todo"
+            placeholder="Cosa vuoi fare oggi?"
+          />
+          <button aria-label="Aggiungi">+</button>
+        </div>
+      </form>
+      <ul id="todo-list"></ul>
+    </main>
 
-<body>
-  <header>
-    <h1>Todo List</h1>
-  </header>
-  <main>
-    <form id="todo-form">
-      <label for="new-todo">
-        Aggiungi un nuovo todo alla lista
-      </label>
-      <div class="form-field">
-        <input id="new-todo" name="new-todo" placeholder="Cosa vuoi fare oggi?">
-        <button aria-label="Aggiungi">+</button>
-      </div>
-    </form>
-    <ul id="todo-list">
-
-    </ul>
-  </main>
-
-  <script src="main.js" type="module"></script>
-  <script src="model.js" type="module"></script>
-  <script src="view.js" type="module"></script>
-  <script src="observable.js" type="module"></script>
-</body>
-
+    <script src="main.js" type="module"></script>
+  </body>
 </html>
