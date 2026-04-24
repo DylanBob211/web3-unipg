@@ -4,16 +4,19 @@
   "description": "A simple todo list app for unipg",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc --noEmit && vite build",
     "lint": "eslint .",
-    "format": "prettier . --write"
+    "format": "prettier . --write",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@eslint/css": "^1.1.0",
     "@eslint/js": "^10.0.1",
+    "@types/canvas-confetti": "^1.9.0",
     "eslint": "^10.2.0",
     "globals": "^17.4.0",
     "prettier": "3.8.2",
+    "typescript": "^6.0.3",
     "vite": "^8.0.8"
   },
   "dependencies": {

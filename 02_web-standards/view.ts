@@ -1,15 +1,19 @@
-export const todoList = document.querySelector('#todo-list');
+import type { Todo } from './types';
+import { querySelectorOrThrow } from './utils';
 
-export function renderTodos(todos) {
+export const todoList = querySelectorOrThrow('#todo-list');
+
+export function renderTodos(todos: Todo[]) {
   todoList.innerHTML = '';
 
   const todoListItems = todos.map(createTodoListItem);
   todoList.append(...todoListItems);
 }
 
-function createTodoListItem(todo) {
+function createTodoListItem(todo: Todo) {
   const li = document.createElement('li');
-  li.id = todo.id;
+
+  li.id = todo.id.toString();
   li.innerHTML = `
     <label>
       <input type="checkbox" ${todo.completed ? 'checked' : ''}>

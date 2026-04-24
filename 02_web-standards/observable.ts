@@ -1,16 +1,18 @@
-export class Observable {
-  #listeners = [];
-  #value;
+type Listener<Value> = (v: Value) => void;
 
-  constructor(initalValue) {
+export class Observable<T> {
+  #listeners: Listener<T>[] = [];
+  #value: T;
+
+  constructor(initalValue: T) {
     this.#value = initalValue;
   }
 
-  subscribe(fn) {
+  subscribe(fn: Listener<T>) {
     this.#listeners.push(fn);
   }
 
-  next(value) {
+  next(value: T) {
     this.#value = value;
     for (const listener of this.#listeners) {
       listener(value);

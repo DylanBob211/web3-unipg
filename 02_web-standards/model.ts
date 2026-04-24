@@ -1,9 +1,10 @@
-import { Observable } from './observable.js';
+import { Observable } from './observable';
+import type { Todo } from './types';
 import { renderTodos } from './view.js';
 
 const todosStorageKey = 'todos';
 const initialTodos = await init();
-export const todos = new Observable([]);
+export const todos = new Observable<Todo[]>([]);
 
 function getTodosFromLocalStorage() {
   const raw = localStorage.getItem(todosStorageKey);
