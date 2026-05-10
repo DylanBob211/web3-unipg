@@ -1,0 +1,16 @@
+<h1>La mia nuova app</h1>
+
+<app-receipe-form (add)="receipeService.addReceipe($event)" />
+<h2>Il totale delle ricette è: {{ receipeService.total() }}</h2>
+
+@if(receipeService.total() === 0) {
+<p>Aggiungi una ricetta</p>
+}
+@else {
+
+<div class="receipes-container">
+  @for (receipe of receipeService.receipes(); track receipe.id) {
+  <app-receipe-card [receipe]="receipe" (remove)="receipeService.removeReceipe($event)" />
+  }
+</div>
+}

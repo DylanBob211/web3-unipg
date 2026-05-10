@@ -1,0 +1,29 @@
+article {
+  padding: 1em;
+  background-color: azure;
+  border: 1px solid grey;
+}
+
+h1 {
+  font-size: 20px;
+  color: rgb(7, 7, 7);
+}
+
+p {
+  color: rgb(30, 30, 30)
+}
+
+button {
+  background-color: red;
+  color: white;
+  padding: 4px 8px;
+  border: none;
+}
+
+button:hover {
+  background-color: darkred;
+}
+
+button:active {
+  transform: scale(0.99)
+}

@@ -1,0 +1,13 @@
+<form (submit)="$event.preventDefault(); add.emit(receipeForm().value())">
+  <input [formField]="receipeForm.name" placeholder="Nome">
+  @if(receipeForm.name().invalid()) {
+  {{ receipeForm.name().errors()[0]?.message }}
+  }
+
+  <textarea [formField]="receipeForm.receipe" placeholder="Ricetta"></textarea>
+  @if(receipeForm.receipe().invalid()) {
+  Il campo è obbligatorio
+  }
+
+  <button [disabled]="receipeForm().invalid()">Aggiungi</button>
+</form>

@@ -1,0 +1,8 @@
+<article>
+  <h1>{{ receipe().name }}</h1>
+  <p>
+    {{ receipe().receipe }}
+  </p>
+
+  <button (click)="remove.emit(receipe().id)">Rimuovi ricetta</button>
+</article>
